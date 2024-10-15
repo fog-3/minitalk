@@ -6,7 +6,7 @@
 /*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 16:31:07 by fosuna-g          #+#    #+#             */
-/*   Updated: 2024/10/15 16:35:14 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/10/15 17:10:41 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	send_message(char *pid, char *str)
 	int		i;
 	char	c;
 
+	chk_pid(pid);
 	while (*str)
 	{
 		i = 8;
