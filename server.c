@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/15 16:31:15 by fosuna-g          #+#    #+#             */
+/*   Updated: 2024/10/15 16:37:05 by fosuna-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <signal.h>
 #include "libft/libft.h"
@@ -32,7 +43,7 @@ int	chk_end_file(unsigned char c, pid_t client_pid)
 		kill(client_pid, SIGUSR2);
 		return (1);
 	}
-	return(0);
+	return (0);
 }
 
 static void	handle_signal(int sig, siginfo_t *info, void *context)
@@ -52,7 +63,7 @@ static void	handle_signal(int sig, siginfo_t *info, void *context)
 		{
 			client_pid = 0;
 			c = 0;
-			i= 0;
+			i = 0;
 			return ;
 		}
 		ft_putchar_fd(c, 1);
@@ -72,7 +83,7 @@ int	main(void)
 	s_action.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &s_action, NULL);
 	sigaction(SIGUSR2, &s_action, NULL);
-	while(1)
+	while (1)
 		pause();
-	return(0);
+	return (0);
 }

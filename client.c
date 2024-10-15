@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/15 16:31:07 by fosuna-g          #+#    #+#             */
+/*   Updated: 2024/10/15 16:35:14 by fosuna-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <signal.h>
 #include "libft/libft.h"
@@ -18,7 +29,8 @@ void	chk_pid(char *pid)
 	{
 		if (!ft_isdigit(pid[i]))
 		{
-			ft_putendl_fd("\033[31mError: \033[0mthe type of the arguments are wrong", 1);
+			ft_putstr_fd("\033[31mError: \033[0mthe ", 1);
+			ft_putendl_fd("type of the arguments are wrong", 1);
 			help_message();
 			exit(0);
 		}
@@ -29,11 +41,10 @@ void	chk_pid(char *pid)
 /*Se usará SIGUSR1 como valor 0 y SIGUSR2 como valor 1
   y así enviaremos las letras en un formato binario*/
 static void	send_message(char *pid, char *str)
-{	
+{
 	int		i;
 	char	c;
 
-	//chk_pid(pid);
 	while (*str)
 	{
 		i = 8;
@@ -78,13 +89,14 @@ int	main(int argc, char *argv[])
 		signal(SIGUSR1, signal_handler);
 		signal(SIGUSR2, signal_handler);
 		send_message(argv[1], argv[2]);
-		while(1)
+		while (1)
 			pause();
 	}
 	else
 	{
-		ft_putendl_fd("\033[31mError: \033[0mThere are not enough parameters", 1);
+		ft_putstr_fd("\033[31mError: \033[0mThere ", 1);
+		ft_putendl_fd("are not enough parameters", 1);
 		help_message();
 	}
-	return(0);
+	return (0);
 }

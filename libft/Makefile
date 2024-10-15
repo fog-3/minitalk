@@ -21,10 +21,10 @@ BOBJ = ${BSOURCES:.c=.o}
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+		@ar rcs ${NAME} ${OBJS}
 
 bonus: ${OBJS} ${BOBJ}
-		ar rcs ${NAME} $?
+		@ar rcs ${NAME} $?
 
 clean:
 		rm -f ${OBJS}

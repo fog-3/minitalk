@@ -9,16 +9,19 @@ all: server client
 bonus: server client
 
 server: server.o libft
-	$(CC) -o $@ $< -Llibft -lft
+	@$(CC) -o $@ $< -Llibft -lft
+	@echo "\n -------------- ✅ Server is ready ✅ -------------- \n"
 
 client: client.o libft
-	$(CC) -o $@ $< -Llibft -lft
+	@$(CC) -o $@ $< -Llibft -lft
+	@echo "\n -------------- ✅ Client is ready ✅ -------------- \n"
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $?
+	@$(CC) -c $(CFLAGS) $?
 
 libft:
-	make -C libft
+	@make -C libft
+	@echo "\n -------------- ✅ Libft Compiled ✅ -------------- \n"
 
 clean:
 	rm -f $(OBJECTS)
