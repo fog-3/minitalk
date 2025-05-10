@@ -97,7 +97,7 @@ Message sent successfully!
 ## **📝 Credits**  
 **Completed at:** 42 Malaga  
 **Author:** Fernando (@fosuna-g)  
-**Date:** [Month Year]  
+**Date:** 2024-10-15  
 
 <p align="center">
     <img height=40 src="images/Minitalkmarck.png">
